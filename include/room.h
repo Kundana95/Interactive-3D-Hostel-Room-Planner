@@ -25,4 +25,9 @@ void drawBox(float cx, float cy, float cz,
 //   floor, ceiling, back wall (with door), left wall (with window), right wall.
 //   The front wall (Z = +2.25) is intentionally omitted for camera visibility.
 // ---------------------------------------------------------------------------
-void drawRoom();
+struct RoomOpenings {
+    float doorCenterX, doorWidth, doorHeight;
+    float windowCenterX, windowSillY, windowWidth, windowHeight;
+};
+
+void drawRoom(bool includeCeiling = true, const RoomOpenings* openings = nullptr);

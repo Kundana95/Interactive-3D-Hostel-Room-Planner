@@ -52,7 +52,7 @@ Or double-click `build/hostel_planner.exe` from Windows Explorer.
 - **1 OpenGL unit = 1 metre**
 - Room:  X ∈ [−2.0, +2.0] (4.0 m wide) · Y ∈ [0.0, 2.8] (2.8 m high) · Z ∈ [−2.25, +2.25] (4.5 m deep)
 - Floor at Y = 0, ceiling at Y = 2.8
-- Back wall (door) at Z = −2.25 · Left wall (window) at X = −2.0
+- Back wall (door and window) at Z = −2.25 · Left wall (navy accent) at X = −2.0
 - Front wall (Z = +2.25) intentionally omitted for camera visibility
 
 ## Module Overview
@@ -61,17 +61,19 @@ Or double-click `build/hostel_planner.exe` from Windows Explorer.
 |------|---------|
 | `src/main.cpp` | GLUT entry point, display loop, overview camera (Person 2 replaces camera) |
 | `src/room.cpp` | Floor, ceiling, walls, door opening, window, curtains |
-| `src/furniture.cpp` | Furniture models and position state (Milestone 2) |
+| `src/furniture.cpp` | Furniture models and bedroom decorations |
 | `src/input.cpp` | Keyboard callbacks and furniture interaction (Milestone 3) |
 | `include/room.h` | `drawBox()` utility + `drawRoom()` declaration |
-| `include/furniture.h` | `Furniture` struct and function declarations (Milestone 2) |
+| `include/furniture.h` | Furniture draw function declaration |
 | `include/input.h` | Input function declarations (Milestone 3) |
 
 ## Default Furniture Layout
 
 | Item | Centre X | Centre Z | Size (W × H × D) |
 |------|----------|----------|------------------|
-| Bed | −1.55 | +0.90 | 0.9 × 0.55 × 2.0 m |
-| Desk | +1.70 | −0.50 | 0.6 × 0.75 × 1.2 m |
-| Chair | +0.70 | −0.50 | 0.45 × 0.9 × 0.45 m |
-| Wardrobe | +1.73 | −1.80 | 0.55 × 1.8 × 0.9 m |
+| Bed | −1.425 | +1.05 | 1.15 × 0.90 × 1.92 m |
+| Desk | +0.50 | −1.82 | 1.34 × 0.83 × 0.60 m |
+| Chair | +0.50 | −1.17 | 0.48 × 0.58 × 0.48 m |
+| Wardrobe | +1.66 | −1.63 | 0.66 × 1.82 × 0.98 m |
+
+The room uses a solid deep navy accent wall on the left and a 1.4 × 1.0 m window opening on the back wall, to the right of the door. Window bounds are X = [−0.20, +1.20], Y = [1.00, 2.00], at Z = −2.25. The desk sits below the window facing −Z. The furniture module also draws a central rug, floating shelves, books, plants, framed art, and warm string lights.
